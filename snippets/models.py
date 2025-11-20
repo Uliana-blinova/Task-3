@@ -13,11 +13,11 @@ class Snippet(models.Model):
    created = models.DateTimeField(auto_now_add=True)
    title = models.CharField(max_length=100, blank=True, default='')
    code = models.TextField()
-   linenos = models.BooleanField(default=False)
+   linenos = models.BooleanField(default=False)#отображать номера строк
    language = models.CharField(choices=LANGUAGE_CHOICES, default='python', max_length=100)
    style = models.CharField(choices=STYLE_CHOICES, default='friendly', max_length=100)
    owner = models.ForeignKey('auth.User', related_name='snippets', on_delete=models.CASCADE)
-   highlighted = models.TextField()
+   highlighted = models.TextField()#TML-код сниппета с подсвеченным синтаксисом
 
    def save(self, *args, **kwargs):
        """

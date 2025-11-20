@@ -10,7 +10,7 @@ from .serializers import SnippetSerializer, UserSerializer
 
 
 @api_view(['GET'])
-def api_root(request, format=None):
+def api_root(request, format=None):#none-Параметр для поддержки суффиксов формата
    return Response({
        'users': reverse('user-list', request=request, format=format),
        'snippets': reverse('snippet-list', request=request, format=format)
